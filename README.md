@@ -1,2 +1,4 @@
-# simple-docker
-A simple docker-compose setup for Perch or Runway
+Template to start LAMP project
+==============================
+
+LAMP + xdebug

@@ -7,8 +7,12 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    environment:
+        PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
+        XDEBUG_CONFIG: remote_host=172.19.0.1
     volumes:
-      - /Users/rachel/Docker/simple-docker/www:/var/www/html
+      - ./www:/var/www/html
+      - ./docker/webserver/php.ini:/usr/local/etc/php/conf.d/php.ini
     links:
       - db
 
@@ -19,5 +23,5 @@ services:
     volumes:
       - ./db:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=docker
-      - MYSQL_DATABASE=db_runwaytest
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db_tweet
