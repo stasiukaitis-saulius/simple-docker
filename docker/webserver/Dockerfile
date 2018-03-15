@@ -7,6 +7,7 @@ RUN apt-get update -y \
 RUN docker-php-ext-install pdo pdo_mysql gd curl
 
 COPY vhost.conf /etc/apache2/sites-enabled/000-default.conf
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN mv /var/www/html /var/www/public
 
 RUN a2enmod rewrite
