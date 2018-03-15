@@ -4,6 +4,7 @@ services:
   webserver:
     build: ./docker/webserver
     image: docker_template_web
+    container_name: template_webserver
     ports:
       - "80:80"
       - "443:443"
