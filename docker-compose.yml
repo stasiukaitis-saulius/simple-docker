@@ -13,7 +13,7 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./docker/webserver/php.ini:/usr/local/etc/php/conf.d/php.ini
-    links:
+    depends_on:
       - db
 
   db:
