@@ -3,7 +3,7 @@ version: '2'
 services:
   webserver:
     build: ./docker/webserver
-    image: runwaytest_web
+    image: docker_template_web
     ports:
       - "80:80"
       - "443:443"
@@ -24,4 +24,6 @@ services:
       - ./db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=db_tweet
+      - MYSQL_DATABASE=db_template
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=pass123
