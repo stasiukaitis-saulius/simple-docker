@@ -12,3 +12,5 @@ RUN mv /var/www/html /var/www/public
 
 RUN a2enmod rewrite
 RUN service apache2 restart
+
+WORKDIR /var/www
