@@ -6,9 +6,10 @@ services:
     image: docker_template_web
     # Change template to your project name as this name could be used to access container.
     container_name: template_webserver
+    # Change external ports for every project.
     ports:
-      - "80:80"
-      - "443:443"
+      - "8011:80"
+      - "44311:443"
     environment:
         PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
         XDEBUG_CONFIG: remote_host=172.19.0.1
@@ -21,11 +22,14 @@ services:
     image: mysql:5.7
     # Change template to your project name as this name could be used to access container.
     container_name: template_database
+    # Change external ports for every project.
+    # Disable mysql port if no GUI client used.
     ports: 
-      - "3306:3306"
+      - "3311:3306"
     volumes:
       - ./db:/var/lib/mysql
       - ./docker/db/my.cnf:/etc/mysql/conf.d/egame.cnf
+    # Change environment values to something custom to add more security.
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=db_template
