@@ -1,9 +1,10 @@
-version: '2'
+version: '3'
 
 services:
   webserver:
     build: ./docker/webserver
     image: docker_template_web
+    # Change template to your project name as this name could be used to access container.
     container_name: template_webserver
     ports:
       - "80:80"
@@ -18,6 +19,8 @@ services:
 
   db:
     image: mysql:5.7
+    # Change template to your project name as this name could be used to access container.
+    container_name: template_database
     ports: 
       - "3306:3306"
     volumes:
@@ -29,3 +32,8 @@ services:
       # User and Password should match values in my.cnf file.
       - MYSQL_USER=db_user
       - MYSQL_PASSWORD=pass4a4gr123
+
+networks:
+  default:
+    external:
+      name: devdocker_standard
