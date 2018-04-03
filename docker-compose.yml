@@ -22,8 +22,10 @@ services:
       - "3306:3306"
     volumes:
       - ./db:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/egame.cnf
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=db_template
+      # User and Password should match values in my.cnf file.
       - MYSQL_USER=db_user
-      - MYSQL_PASSWORD=pass123
+      - MYSQL_PASSWORD=pass4a4gr123
