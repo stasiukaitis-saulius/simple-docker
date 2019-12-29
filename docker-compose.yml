@@ -14,7 +14,7 @@ services:
         PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
         XDEBUG_CONFIG: remote_host=172.19.0.1
     volumes:
-      - ./www:/var/www/html
+      - ./www:/var/www
     depends_on:
       - db
 
